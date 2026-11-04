@@ -12,6 +12,7 @@ Prosjektene er sortert etter **uke**. Hver mappe inneholder koden slik den så u
 - [Kom i gang](#-kom-i-gang)
 - [Uke 38 – Lister, filer og løkker](#-uke-38--lister-filer-og-løkker)
 - [Uke 39 – Klasser og objekter](#-uke-39--klasser-og-objekter)
+- [🗄️ SQL-jukselapp](SQL_jukselapp.md)
 
 ---
 
@@ -59,6 +60,12 @@ Prosjektene er sortert etter **uke**. Hver mappe inneholder koden slik den så u
 
 > ⚠️ Filnavnet `Hero'sStand.py` har en apostrof, så sett det i anførselstegn når du kjører det:
 > `python "Hero'sStand.py"`
+
+---
+
+## 🗄️ SQL
+
+Vi har begynt med databaser! De vanligste kommandoene finner du i [**SQL-jukselappen**](SQL_jukselapp.md).
 
 ---
 
