@@ -1,2 +1,7 @@
 .idea/
 .claude/
+.env
+/11-pysql-flask/02-exercises/config_local.py
+
+**/[Cc]onfig_local.py
+.DS_Store
