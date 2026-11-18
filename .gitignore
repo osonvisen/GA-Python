@@ -5,3 +5,7 @@
 
 **/[Cc]onfig_local.py
 .DS_Store
+
+# Course material (not for GitHub)
+Week47/*.pdf
+notater/

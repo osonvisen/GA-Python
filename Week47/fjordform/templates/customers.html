@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Customers{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Customers</h1>
+    <a class="btn btn-primary" href="/customer/add">+ Add customer</a>
+</div>
+
+<div class="card table-wrap">
+    <table>
+        <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Product</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for c in rows %}
+            <tr>
+                <td><a href="/customer/{{ c.id }}">{{ c.first_name }} {{ c.last_name }}</a></td>
+                <td>{{ c.email }}</td>
+                <td class="muted">{{ c.phone or "–" }}</td>
+                <td><span class="badge">{{ c.product_name }}</span></td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4" class="empty">No customers found.</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}{{ "Edit product" if product else "New product" }}{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>{{ "Edit product" if product else "New product" }}</h1>
+    <a class="btn btn-ghost" href="/products">← Back to products</a>
+</div>
+
+<div class="card form-card">
+    <form method="post" action="{{ ('/product/' ~ product.id ~ '/edit') if product else '/product/add' }}">
+        <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" maxlength="50" required
+                   value="{{ product.name if product else '' }}">
+        </div>
+        <div class="field">
+            <label for="description">Description <span class="optional">(optional)</span></label>
+            <input id="description" name="description" maxlength="200"
+                   value="{{ product.description if product else '' }}">
+        </div>
+        <div class="field">
+            <label for="monthly_price">Monthly price (kr)</label>
+            <input id="monthly_price" name="monthly_price" type="number" step="0.01" min="0.01" required
+                   value="{{ product.monthly_price if product else '' }}">
+        </div>
+        <div class="actions">
+            <button class="btn btn-primary" type="submit">Save product</button>
+        </div>
+    </form>
+
+    {% if product %}
+        <form class="danger-zone" method="post" action="/product/{{ product.id }}/delete"
+              onsubmit="return confirm('Delete this product?');">
+            <button class="btn btn-danger" type="submit">Delete product</button>
+        </form>
+    {% endif %}
+</div>
+{% endblock %}

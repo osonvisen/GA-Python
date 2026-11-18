@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}{{ "Edit customer" if customer else "New customer" }}{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>{{ "Edit customer" if customer else "New customer" }}</h1>
+    <a class="btn btn-ghost" href="/customers">← Back to customers</a>
+</div>
+
+<div class="card form-card">
+    <form method="post" action="{{ ('/customer/' ~ customer.id ~ '/edit') if customer else '/customer/add' }}">
+        <div class="field-row">
+            <div class="field">
+                <label for="first_name">First name</label>
+                <input id="first_name" name="first_name" maxlength="50" required
+                       value="{{ customer.first_name if customer else '' }}">
+            </div>
+            <div class="field">
+                <label for="last_name">Last name</label>
+                <input id="last_name" name="last_name" maxlength="50" required
+                       value="{{ customer.last_name if customer else '' }}">
+            </div>
+        </div>
+        <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" maxlength="100" required
+                   value="{{ customer.email if customer else '' }}">
+        </div>
+        <div class="field">
+            <label for="phone">Phone <span class="optional">(optional)</span></label>
+            <input id="phone" name="phone" type="tel" maxlength="20"
+                   value="{{ (customer.phone or '') if customer else '' }}">
+        </div>
+        <div class="field">
+            <label for="product_id">Product</label>
+            <select id="product_id" name="product_id" required>
+                {% for p in products %}
+                    <option value="{{ p.id }}" {% if customer and p.id == customer.product_id %}selected{% endif %}>
+                        {{ p.name }} ({{ "%.2f"|format(p.monthly_price) }} kr)
+                    </option>
+                {% endfor %}
+            </select>
+            {% if not products %}
+                <p class="hint">No products yet. <a href="/product/add">Add a product</a> first.</p>
+            {% endif %}
+        </div>
+        <div class="actions">
+            <button class="btn btn-primary" type="submit">Save customer</button>
+        </div>
+    </form>
+
+    {% if customer %}
+        <form class="danger-zone" method="post" action="/customer/{{ customer.id }}/delete"
+              onsubmit="return confirm('Delete this customer?');">
+            <button class="btn btn-danger" type="submit">Delete customer</button>
+        </form>
+    {% endif %}
+</div>
+{% endblock %}

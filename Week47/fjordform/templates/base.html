@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Fjordform{% endblock %} · Fjordform</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<header class="site-header">
+    <div class="container header-inner">
+        <a class="brand" href="/">
+            <span class="brand-mark" aria-hidden="true">≋</span>
+            Fjordform
+        </a>
+        <nav class="main-nav" aria-label="Main">
+            {% set links = [("/products", "Products"), ("/customers", "Customers"), ("/employees", "Employees"), ("/about", "About")] %}
+            {% for href, label in links %}
+                {# "/products" is active on the list and on "/product/..." pages #}
+                <a href="{{ href }}"
+                   {% if request.path == href or request.path.startswith(href[:-1] ~ "/") %}class="active" aria-current="page"{% endif %}>{{ label }}</a>
+            {% endfor %}
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    {# Level 2 extension: shows flash() messages. Renders nothing until the app uses flash(). #}
+    {% with messages = get_flashed_messages() %}
+        {% for message in messages %}
+            <div class="flash" role="status">{{ message }}</div>
+        {% endfor %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+</main>
+
+<footer class="site-footer">
+    <div class="container">Fjordform member register · Flask &amp; MySQL</div>
+</footer>
+</body>
+</html>

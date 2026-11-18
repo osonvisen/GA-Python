@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}About{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>About Fjordform</h1>
+</div>
+
+<div class="card prose">
+    <p>Member register for the Fjordform gym, built with Flask and MySQL.</p>
+    <ul>
+        <li><strong>GET</strong> reads data, <strong>POST</strong> changes it.</li>
+        <li>Every change ends with a <code>303</code> redirect back to the list.</li>
+        <li>All SQL uses <code>%s</code> parameters.</li>
+    </ul>
+</div>
+{% endblock %}

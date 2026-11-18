@@ -1,0 +1,435 @@
+/* Fjordform – shared styles for all pages */
+
+:root {
+    --fjord-900: #0b2a3c;
+    --fjord-700: #12506e;
+    --fjord-500: #1f7fa8;
+    --fjord-100: #e3f1f7;
+    --moss-500: #2e9e6f;
+    --moss-100: #e2f5ec;
+    --danger-600: #c0392b;
+    --danger-100: #fbe9e7;
+
+    --bg: #f4f7f9;
+    --surface: #ffffff;
+    --text: #1b2630;
+    --muted: #5d6b78;
+    --border: #dde4ea;
+
+    --radius: 12px;
+    --shadow: 0 1px 2px rgba(11, 42, 60, 0.06), 0 4px 16px rgba(11, 42, 60, 0.06);
+    --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font);
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--text);
+    background: var(--bg);
+}
+
+a {
+    color: var(--fjord-500);
+}
+
+a:hover {
+    color: var(--fjord-700);
+}
+
+code {
+    padding: 0.1em 0.35em;
+    border-radius: 4px;
+    background: var(--fjord-100);
+    font-size: 0.9em;
+}
+
+.container {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+main.container {
+    flex: 1;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+}
+
+/* ---- Header and navigation ---------------------------------------------- */
+
+.site-header {
+    background: linear-gradient(135deg, var(--fjord-900), var(--fjord-700));
+    color: #fff;
+}
+
+.header-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #fff;
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+}
+
+.brand:hover {
+    color: #fff;
+}
+
+.brand-mark {
+    display: grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 8px;
+    background: var(--moss-500);
+    font-size: 1.2rem;
+}
+
+.main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+}
+
+.main-nav a {
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.main-nav a:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.main-nav a.active {
+    color: var(--fjord-900);
+    background: #fff;
+}
+
+.site-footer {
+    padding: 1.25rem 0;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+/* ---- Page header and cards ---------------------------------------------- */
+
+.page-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.page-header h1 {
+    margin: 0;
+    font-size: 1.75rem;
+    color: var(--fjord-900);
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.prose {
+    padding: 1.25rem 1.5rem;
+}
+
+/* ---- Front page ---------------------------------------------------------- */
+
+.hero {
+    margin-bottom: 2rem;
+    padding: 2.5rem 2rem;
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, var(--fjord-500), var(--moss-500));
+    color: #fff;
+}
+
+.hero h1 {
+    margin: 0 0 0.5rem;
+    font-size: 2.25rem;
+}
+
+.hero p {
+    margin: 0;
+    font-size: 1.1rem;
+    opacity: 0.95;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+.nav-card {
+    display: block;
+    padding: 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    color: var(--text);
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.nav-card:hover {
+    color: var(--text);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(11, 42, 60, 0.12);
+}
+
+.nav-card-icon {
+    font-size: 2rem;
+}
+
+.nav-card h2 {
+    margin: 0.5rem 0 0.25rem;
+    color: var(--fjord-700);
+    font-size: 1.2rem;
+}
+
+.nav-card p {
+    margin: 0;
+    color: var(--muted);
+}
+
+/* ---- Tables -------------------------------------------------------------- */
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 0.8rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+
+th {
+    background: var(--fjord-100);
+    color: var(--fjord-900);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background: #f8fbfc;
+}
+
+td a {
+    font-weight: 600;
+    text-decoration: none;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+.num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+.empty {
+    padding: 2rem;
+    color: var(--muted);
+    font-style: italic;
+    text-align: center;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.15rem 0.6rem;
+    border-radius: 999px;
+    background: var(--moss-100);
+    color: #1d6b4a;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.badge-alt {
+    background: var(--fjord-100);
+    color: var(--fjord-700);
+}
+
+/* ---- Forms --------------------------------------------------------------- */
+
+.form-card {
+    max-width: 560px;
+    padding: 1.5rem;
+}
+
+.field {
+    flex: 1;
+    margin-bottom: 1rem;
+}
+
+.field-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.field-row .field {
+    min-width: 180px;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-weight: 600;
+    color: var(--fjord-900);
+}
+
+.optional {
+    color: var(--muted);
+    font-weight: 400;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--text);
+    font: inherit;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--fjord-500);
+    box-shadow: 0 0 0 3px rgba(31, 127, 168, 0.2);
+}
+
+.hint {
+    margin: 0.4rem 0 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.actions {
+    margin-top: 1.5rem;
+}
+
+.danger-zone {
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px dashed var(--border);
+}
+
+/* ---- Buttons ------------------------------------------------------------- */
+
+.btn {
+    display: inline-block;
+    padding: 0.6rem 1.1rem;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font: inherit;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.btn:focus-visible,
+.main-nav a:focus-visible,
+.nav-card:focus-visible {
+    outline: 3px solid var(--moss-500);
+    outline-offset: 2px;
+}
+
+.btn-primary {
+    background: var(--fjord-500);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: var(--fjord-700);
+    color: #fff;
+}
+
+.btn-ghost {
+    border-color: var(--border);
+    background: var(--surface);
+    color: var(--fjord-700);
+}
+
+.btn-ghost:hover {
+    background: var(--fjord-100);
+}
+
+.btn-danger {
+    border-color: var(--danger-600);
+    background: var(--surface);
+    color: var(--danger-600);
+}
+
+.btn-danger:hover {
+    background: var(--danger-600);
+    color: #fff;
+}
+
+/* ---- Flash messages (level 2 extension) ---------------------------------- */
+
+.flash {
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+    border-left: 4px solid var(--moss-500);
+    border-radius: 8px;
+    background: var(--moss-100);
+}

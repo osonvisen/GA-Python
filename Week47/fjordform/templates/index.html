@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>{{ heading }}</h1>
+    <p>Register products, customers and employees without opening DataGrip.</p>
+</section>
+
+<div class="card-grid">
+    <a class="nav-card" href="/products">
+        <span class="nav-card-icon" aria-hidden="true">🏷️</span>
+        <h2>Products</h2>
+        <p>Memberships the centre sells.</p>
+    </a>
+    <a class="nav-card" href="/customers">
+        <span class="nav-card-icon" aria-hidden="true">🧑‍🤝‍🧑</span>
+        <h2>Customers</h2>
+        <p>Members and their membership.</p>
+    </a>
+    <a class="nav-card" href="/employees">
+        <span class="nav-card-icon" aria-hidden="true">💪</span>
+        <h2>Employees</h2>
+        <p>Reception, trainers and instructors.</p>
+    </a>
+</div>
+{% endblock %}
