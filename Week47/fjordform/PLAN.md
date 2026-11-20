@@ -22,7 +22,7 @@ laget på forhånd, så vi kan bruke tiden på Python-koden.
 
 | Fil | Innhold |
 |-----|---------|
-| `models.py` | Klassene `Product`, `Customer` og `Employee` |
+| `models.py` | Klassene `models.py`, `Customer` og `Employee` |
 | `database.py` | Alle SQL-spørringene, med `%s`-parametre og `commit()` |
 | `app.py` | Rutene: GET for å hente data, POST for å endre data |
 | `config_local.py` | Tilkoblingen til databasen. **Skal ikke til GitHub** |
@@ -67,7 +67,7 @@ Kunder bruker `/customers` og `/customer/...`, og ansatte bruker `/employees` og
 
 ### Del 1 – Produkter
 Bygg og test i denne rekkefølgen: **liste → legg til → vis → endre → slett**.
-1. `models.py`: klassen `Product` med `id`, `name`, `description` og `monthly_price`.
+1. `models.py`: klassen `models.py` med `id`, `name`, `description` og `monthly_price`.
 2. `database.py`: `get_products()`, `get_product(id)`, `insert_product(...)`, `update_product(...)` og `delete_product(id)`.
 3. `app.py`: de fem rutene. Alle endringer avsluttes med `redirect("/products", code=303)`.
 4. Validering i Flask: navn 1–50 tegn, beskrivelse maks 200 tegn, og pris er et tall større enn 0. Ved feil svarer vi `400`.
