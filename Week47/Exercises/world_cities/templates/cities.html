@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cities</title>
+</head>
+<body>
+<h1>Cities in {{ code }}</h1>
+
+<form action="/cities" method="get">
+    <label for="country">Country code</label>
+    <input type="text" id="country" name="country" value="{{ code }}"
+           required minlength="3" maxlength="3">
+    <button type="submit">Search</button>
+</form>
+
+<ul>
+    {% for city in rows %}
+        <li><a href="/city/{{ city.id }}">{{ city.name }}</a>: {{ city.population }}</li>
+    {% else %}
+        <li>No cities found.</li>
+    {% endfor %}
+</ul>
+
+<p><a href="/add">Add city</a></p>
+</body>
+</html>

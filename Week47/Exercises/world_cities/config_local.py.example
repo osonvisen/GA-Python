@@ -1,0 +1,9 @@
+# Copy this file to config_local.py and fill in your own local values.
+# config_local.py must never be committed to Git.
+DB_CONFIG = {
+    "host": "localhost",
+    "port": 3306,
+    "user": "YOUR_USERNAME",
+    "password": "YOUR_PASSWORD",
+    "database": "world",
+}

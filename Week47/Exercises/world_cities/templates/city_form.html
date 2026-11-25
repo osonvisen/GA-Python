@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>City</title>
+</head>
+<body>
+{% if city_id %}
+    <h1>Edit city</h1>
+    {# Plain text, not an input: the ID can be seen but not edited #}
+    <p>ID: {{ city_id }}</p>
+{% else %}
+    <h1>Add city</h1>
+{% endif %}
+
+{# One form for both add and edit: city_id decides where it is sent #}
+<form action="{% if city_id %}/edit/{{ city_id }}{% else %}/add{% endif %}" method="post">
+    <p>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" value="{{ name }}"
+               required maxlength="35">
+    </p>
+    <p>
+        <label for="country_code">Country code</label>
+        <input type="text" id="country_code" name="country_code" value="{{ country_code }}"
+               required minlength="3" maxlength="3">
+    </p>
+    <p>
+        <label for="district">District</label>
+        <input type="text" id="district" name="district" value="{{ district }}"
+               maxlength="20">
+    </p>
+    <p>
+        <label for="population">Population</label>
+        <input type="number" id="population" name="population" value="{{ population }}"
+               required min="0">
+    </p>
+    <button type="submit">Save</button>
+</form>
+
+{# A separate form: HTML does not allow a form inside another form #}
+{% if city_id %}
+    <form action="/delete/{{ city_id }}" method="post">
+        <button type="submit">Delete</button>
+    </form>
+{% endif %}
+
+<p><a href="/cities">Back to cities</a></p>
+</body>
+</html>
