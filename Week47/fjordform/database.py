@@ -51,7 +51,31 @@ def insert_product(name, description, monthly_price):
         connection.commit()
 
 
+def update_product(product_id, name, description, monthly_price):
+    sql = """
+          UPDATE product
+          SET name          = %s,
+              description   = %s,
+              monthly_price = %s
+          WHERE id = %s
+          """
+    params = (name, description, monthly_price, product_id)
+    with mysql.connector.connect(**DB_CONFIG) as connection:
+        with connection.cursor() as cursor:
+            cursor.execute(sql, params)
+        connection.commit()
 
+
+def delete_product(product_id):
+    sql = """
+        DELETE FROM product
+        WHERE id = %s
+    """
+    params = (product_id,)
+    with mysql.connector.connect(**DB_CONFIG) as connection:
+        with connection.cursor() as cursor:
+            cursor.execute(sql, params)
+        connection.commit()
 
 # ------ CUSTOMERS ------
 def get_customers():
